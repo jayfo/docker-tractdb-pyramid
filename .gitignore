@@ -1,0 +1,9 @@
+# PyCharm settings
+.idea
+
+# Our Python environment
+env27
+env34
+
+# Compiled Python
+*.pyc
