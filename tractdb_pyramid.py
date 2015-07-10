@@ -1,4 +1,4 @@
-import tractdb
+import tractdb.admin
 import yaml
 
 from wsgiref.simple_server import make_server
