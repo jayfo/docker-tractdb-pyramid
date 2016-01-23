@@ -23,6 +23,7 @@ RUN pip3 install -r /tmp/requirements3.txt && \
 
 # Install our source
 COPY tractdb_pyramid.py /tmp/tractdb_pyramid.py
+COPY views /tmp/views
 
 # Port where Pyramid will listen
 EXPOSE 8080
