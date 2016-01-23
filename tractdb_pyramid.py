@@ -109,8 +109,11 @@ class CouchView:
         #     self.request.matchdict['request']
         # )
 
+        query = 'http://tractdbcouch:5984{}'.format(self.request.matchdict['request'])
+        print(query)
+
         return requests.get(
-            'http://tractdbcouch:5984'
+            query
         ).json()
 
         # return connection.getresponse()
