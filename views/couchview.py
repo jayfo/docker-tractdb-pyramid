@@ -16,5 +16,3 @@ class CouchView:
         return requests.get(
             query
         ).json()
-
-
