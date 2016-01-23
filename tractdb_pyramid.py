@@ -99,26 +99,14 @@ class AccountView:
 class CouchView:
     def __init__(self, request):
         self.request = request
-        # self.connection_class = http.client.HTTPConnection
 
     @pyramid.view.view_config(request_method='GET')
     def get(self):
-        # connection = self.connection_class('http://tractdbcouch:5984')
-        # connection.request(
-        #     'GET',
-        #     self.request.matchdict['request']
-        # )
-
         query = 'http://tractdbcouch:5984{}'.format(self.request.matchdict['request'])
-        print(query)
 
         return requests.get(
             query
         ).json()
-
-        # return connection.getresponse()
-
-        # return self.request.matchdict['request']
 
 
 @pyramid.view.view_config(route_name='echo', renderer='json')
