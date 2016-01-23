@@ -111,7 +111,7 @@ class CouchView:
 
         return requests.get(
             'http://tractdbcouch:5984'
-        )
+        ).json()
 
         # return connection.getresponse()
 
