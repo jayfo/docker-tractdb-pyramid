@@ -1,4 +1,4 @@
-import httplib
+import http.client
 import pyramid.config
 import pyramid.response
 import pyramid.view
@@ -98,7 +98,7 @@ class AccountView:
 class CouchView:
     def __init__(self, request):
         self.request = request
-        self.connection_class = httplib.HTTPConnection
+        self.connection_class = http.client.HTTPConnection
 
     @pyramid.view.view_config(request_method='GET')
     def get(self):
