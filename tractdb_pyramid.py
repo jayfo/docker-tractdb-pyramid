@@ -1,3 +1,4 @@
+import httplib
 import pyramid.config
 import pyramid.response
 import pyramid.view
@@ -97,10 +98,18 @@ class AccountView:
 class CouchView:
     def __init__(self, request):
         self.request = request
+        self.connection_class = httplib.HTTPConnection
 
     @pyramid.view.view_config(request_method='GET')
     def get(self):
-        return self.request.matchdict['request']
+        connection = self.connection_class('tractdbcouch')
+        connection.request(
+            'GET',
+            self.request.matchdict['request']
+        )
+        return connection.getresponse()
+
+        # return self.request.matchdict['request']
 
 
 @pyramid.view.view_config(route_name='echo', renderer='json')
