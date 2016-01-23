@@ -120,7 +120,7 @@ def main():
     config.add_route('accounts', '/accounts')
     config.add_route('account', '/accounts/{account}')
 
-    config.add_route('couch', '/couch/{request}')
+    config.add_route('couch', '/couch{request:.*}')
 
     config.add_route('echo', '/echo')
     config.add_route('yo', '/yo')
