@@ -102,7 +102,7 @@ class CouchView:
 
     @pyramid.view.view_config(request_method='GET')
     def get(self):
-        connection = self.connection_class('tractdbcouch')
+        connection = self.connection_class('http://tractdbcouch:5984')
         connection.request(
             'GET',
             self.request.matchdict['request']
