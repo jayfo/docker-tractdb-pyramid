@@ -1,7 +1,8 @@
-import http.client
+# import http.client
 import pyramid.config
 import pyramid.response
 import pyramid.view
+import requests
 import tractdb.admin
 import wsgiref.simple_server
 import yaml
@@ -98,16 +99,21 @@ class AccountView:
 class CouchView:
     def __init__(self, request):
         self.request = request
-        self.connection_class = http.client.HTTPConnection
+        # self.connection_class = http.client.HTTPConnection
 
     @pyramid.view.view_config(request_method='GET')
     def get(self):
-        connection = self.connection_class('http://tractdbcouch:5984')
-        connection.request(
-            'GET',
-            self.request.matchdict['request']
+        # connection = self.connection_class('http://tractdbcouch:5984')
+        # connection.request(
+        #     'GET',
+        #     self.request.matchdict['request']
+        # )
+
+        return requests.get(
+            'http://tractdbcouch:5984'
         )
-        return connection.getresponse()
+
+        # return connection.getresponse()
 
         # return self.request.matchdict['request']
 
