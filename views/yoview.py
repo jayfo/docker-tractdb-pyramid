@@ -3,10 +3,6 @@ import pyramid.response
 import pyramid.view
 
 
-# @pyramid.view.view_config(route_name='yo', renderer='json')
-# def yo(request):
-#     return 'yo'
-
 @pyramid.view.view_defaults(route_name='yo', renderer='json')
 class YoView:
     def __init__(self, request):
