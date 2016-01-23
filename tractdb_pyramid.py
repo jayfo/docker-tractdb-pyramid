@@ -9,14 +9,9 @@ def echo(request):
     return request.json_body
 
 
-@pyramid.view.view_config(route_name='yo', renderer='json')
-def yo(request):
-    return 'yo'
-
-
 def main():
     config = pyramid.config.Configurator()
-    config.scan()
+    config.scan('views')
 
     config.add_route('accounts', '/accounts')
     config.add_route('account', '/accounts/{account}')
